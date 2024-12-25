@@ -1,3 +1,5 @@
+Create database voyage2;
+use voyage2;
 CREATE TABLE client (
     id_client INT PRIMARY KEY NOT NULL,
     nom VARCHAR (100),
