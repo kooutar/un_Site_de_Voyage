@@ -17,7 +17,6 @@ require_once('../Classes/admin.php');
 
      }
      else{
-        
         echo "il faut remplaire tous les champs";
      }
  
