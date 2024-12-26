@@ -34,3 +34,5 @@ CREATE TABLE activite (
 );
 
 alter table user modify   date_naissance varchar(50);
+alter table activite modify   date_debut varchar(50);
+alter table activite modify   date_fin varchar(50);
