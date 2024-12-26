@@ -4,7 +4,7 @@
   private $connection;//type PDO
 
   private function __construct() {
-      $this->connection = new PDO("mysql:host=localhost;dbname=voyage2", "root", "");
+      $this->connection = new PDO("mysql:host=localhost;dbname=voyage2", "root", "Sara123@");
   }
 
   public static function getInstance() {
@@ -12,7 +12,7 @@
         try {
           self::$instance = new dataBase();
           self::$instance->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          echo "Connected successfully";
+          // echo "Connected successfully";
         } catch (PDOException $e) {
           echo "Connection failed: " . $e->getMessage();
         }
