@@ -1,9 +1,4 @@
 <?php 
-//  $servername = "192.168.8.127";
-//  $username = "root";
-//  $password = "";
-//  $dateBaseName="voyage2";
-
  class dataBase {
   private static $instance = null;//type dataBase
   private $connection;//type PDO
