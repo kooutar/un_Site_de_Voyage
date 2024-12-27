@@ -50,26 +50,28 @@
     }
 
       // Nouvelle méthode pour afficher les activités sous forme de carte responsive
-    public function afficherActivites() {
-        // Commencez à générer la structure HTML des cartes
-        $html = "<div class='activite-cards-container'>";
+      public function afficherActivites() {
+        // Commencez à générer la structure HTML des cartes avec Tailwind CSS
+        $html = "<div>";  // Grid responsive
         
         // Exemple de carte pour une activité
-        $html .= "<div class='activite-card'>";
-        $html .= "<h3>" . $this->getTitre() . "</h3>";
+        $html .= "<div class='bg-white border rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300'>";
+        $html .= "<h3 class='text-xl font-semibold mb-2'>" . $this->getTitre() . "</h3>";
         $html .= "<p><strong>Description:</strong> " . $this->getDescription() . "</p>";
         $html .= "<p><strong>Destination:</strong> " . $this->getDestination() . "</p>";
         $html .= "<p><strong>Prix:</strong> " . $this->getPrix() . "€</p>";
         $html .= "<p><strong>Dates:</strong> Du " . $this->getDate_debut() . " au " . $this->getDate_fin() . "</p>";
         $html .= "<p><strong>Places disponibles:</strong> " . $this->getPlaces_disponibles() . "</p>";
         $html .= "<p><strong>Type:</strong> " . $this->getType_activite() . "</p>";
+        $html .="<button class='resrever bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400'> Reserver</button>";
         $html .= "</div>";  // Fin de la carte d'activité
-
+    
         $html .= "</div>";  // Fin du conteneur de cartes
         
         // Retourner le HTML généré
         return $html;
     }
+    
 
 
  }
