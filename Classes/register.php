@@ -1,7 +1,8 @@
-<?php 
-//    require_once('dataBase/db.php');
-//    $db1 = dataBase::getInstance();
-//    $conn1 = $db1->getConnection();
+
+
+<?php
+require_once('db.php');
+require_once('visiteur.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = $_POST['nom'];
@@ -10,20 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone = $_POST['telephone'];
     $adresse = $_POST['adresse'];
     $date_naissance = $_POST['date_naissance'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); 
-    $role = 'client';
+    $password = $_POST['password'];
 
-    $sql = "INSERT INTO user (nom, prenom, email, telephone, adresse, date_naissance, password, role) VALUES ('$nom', '$prenom', '$email', '$telephone', '$adresse', '$date_naissance', '$password', '$role')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Registration successful. You can now <a href='login.php'>login</a>.";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
+    $visiteur = new Visiteur($nom, $prenom, $email, $telephone, $adresse, $date_naissance, $password);
+    $visiteur->inscrire();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
