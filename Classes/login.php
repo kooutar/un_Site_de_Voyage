@@ -1,3 +1,5 @@
+
+
 <?php
 require_once('db.php');
 require_once('visiteur.php');
@@ -7,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (Visiteur::login($email, $password)) {
-        if ($_SESSION['user_role'] == 'admin') {
+        if ($_SESSION['user_role'] == 'client') {
+            header("Location: client_dashboard.php");
+        } elseif ($_SESSION['user_role'] == 'superadmin' || $_SESSION['user_role'] == 'admin'  ) {
             header("Location: admin_dashboard.php");
-        } elseif ($_SESSION['user_role'] == 'superadmin') {
-            header("Location: superadmin_dashboard.php");
         } else {
             header("Location: client_dashboard.php");
         }
@@ -20,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>

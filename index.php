@@ -1,7 +1,9 @@
 <?php 
-   require_once('dataBase/db.php');
+//    require_once('dataBase/db.php');
+   require_once('Classes/visiteur.php');
    $db1 = dataBase::getInstance();
    $conn1 = $db1->getConnection();
+
 ?>
 
 
@@ -48,7 +50,7 @@
               </svg>
           </button>
       </div>
-            <div class="hidden font-bebas lg:flex space-x-8">
+            <div class="hidden font- lg:flex space-x-8">
                 <div>
                 <a href="index.php" class="font-bold text-white lg:text-lg p-2 hover:font-bold">Acceuil</a>
                 <hr class="border-t-4 border-emerald-700 opacity-80 w-20 "></div><a href="activites.php" class="font-semibold text-white lg:text-lg p-2 hover:font-bold">Activités</a>
