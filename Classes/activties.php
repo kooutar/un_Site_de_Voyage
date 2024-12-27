@@ -8,7 +8,8 @@
     private $date_fin;
     private $places_disponibles;
     private $type_activite;
-    function __construct($titre,$description,$destination,$prix,$date_debut,$date_fin,$places_disponibles,$type_activite)
+    private $image_path;
+    function __construct($titre,$description,$destination,$prix,$date_debut,$date_fin,$places_disponibles,$type_activite,$image_path)
     {
         $this->titre=$titre;
         $this->description=$description;
@@ -18,6 +19,7 @@
         $this->date_fin=$date_fin;
         $this->places_disponibles=$places_disponibles;
         $this->type_activite=$type_activite;
+        $this->image_path=$image_path;
     }
      public function getTitre() {return $this->titre;}
      public function getDescription() {return $this->description;}
@@ -27,6 +29,7 @@
      public function getDate_fin() {return $this->date_fin;}
      public function getPlaces_disponibles() {return $this->places_disponibles;}
      public function getType_activite() {return $this->type_activite;}
+     public function getImagePath(){return $this->image_path;}
      public function getActivites(){return $this;}
    
      public static function getAllActivites($db) {
@@ -43,7 +46,8 @@
                 $row['date_debut'],
                 $row['date_fin'],
                 $row['places_disponibles'],
-                $row['type_activite']
+                $row['type_activite'],
+                $row['image_path']
             );
         }
         return $activites;
@@ -57,6 +61,7 @@
         // Exemple de carte pour une activité
         $html .= "<div class='bg-white border rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300'>";
         $html .= "<h3 class='text-xl font-semibold mb-2'>" . $this->getTitre() . "</h3>";
+        $html .= "<img src='" . $this->getImagePath() . "' alt='Image de l'activité' class='w-full h-48 object-cover rounded-md mb-4'>";
         $html .= "<p><strong>Description:</strong> " . $this->getDescription() . "</p>";
         $html .= "<p><strong>Destination:</strong> " . $this->getDestination() . "</p>";
         $html .= "<p><strong>Prix:</strong> " . $this->getPrix() . "€</p>";

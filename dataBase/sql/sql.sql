@@ -35,6 +35,8 @@ CREATE TABLE activite (
     places_disponibles INT not null,
     type_activite ENUM('vols', 'hotels', 'circuits touristiques')
 );
+ALTER TABLE activite
+  ADD COLUMN image_path varchar(100) NOT NULL;
 
 alter table user modify   date_naissance varchar(50);
 alter table activite modify   date_debut varchar(50);

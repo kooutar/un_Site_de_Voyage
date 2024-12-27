@@ -144,7 +144,7 @@
         <section class="mb-8 section hidden" id="formActivite">
           <div class="flex items-center justify-center min-h-screen">
             <div class="w-full max-w-[550px] bg-white rounded-lg shadow-md p-6">
-              <form action="../traitement/ajoutactivite.php" method="post" class="space-y-6">
+              <form action="../traitement/ajoutactivite.php" method="post" enctype="multipart/form-data" class="space-y-6">
                 <div class="sm:flex sm:space-x-6 space-y-6 sm:space-y-0">
                   <div class="w-full">
                     <label for="Titre" class="block text-sm font-medium text-gray-700 mb-2">Titre</label>
@@ -154,6 +154,10 @@
                     <label for="destination" class="block text-sm font-medium text-gray-700 mb-2">Destination</label>
                     <input type="text" name="destination" id="destination" class="w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 py-2 px-4" />
                   </div>
+                </div>
+                <div>
+                  <label for="Description" class="block text-sm font-medium text-gray-700 mb-2">Image</label>
+                  <input type="file" name="image_path" id="Description" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-gray-700 py-2 px-4"></textarea>
                 </div>
                 <div>
                   <label for="Description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>

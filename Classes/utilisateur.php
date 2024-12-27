@@ -7,6 +7,7 @@
     private $date_naissance;
     private $adresse;
     private $password;
+    
     function __construct($nom,$prenom,$mail,$telephone,$adresse,$date_naissance,$password)
     {
         $this->nom=$nom;
@@ -17,6 +18,7 @@
         $this->$date_naissance=$date_naissance;
         $this->password=$password;
     }
+
     public function getNom(){return $this->nom;}
     public function getPrenom(){return $this->prenom;}
     public function getTelephone(){return $this->telephone;}

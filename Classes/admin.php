@@ -11,8 +11,8 @@ require_once('../dataBase/db.php');
     public function ajouterActiviter($activite){
         $db=dataBase::getInstance()->getConnection();
         try{
-          $req="INSERT INTO activite(titre,description,destination,prix,date_debut,date_fin,places_disponibles,type_activite)
-          VALUES(:titre,:description,:destination,:prix,:date_debut,:date_fin,:places_disponibles,:type_activite)";
+          $req="INSERT INTO activite(titre,description,destination,prix,date_debut,date_fin,places_disponibles,type_activite,image_path)
+          VALUES(:titre,:description,:destination,:prix,:date_debut,:date_fin,:places_disponibles,:type_activite,:image_path)";
            $query = $db->prepare($req);
            $titre=$activite->getTitre();
            $description=$activite->getDescription();
@@ -22,6 +22,7 @@ require_once('../dataBase/db.php');
            $date_fin=$activite->getDate_fin();
            $places_disponibles=$activite->getPlaces_disponibles();
            $type_activite=$activite->getType_activite();
+           $image_path=$activite->getImagePath();
           $query->bindParam(":titre", $titre);
           $query->bindParam(":description",$description);
           $query->bindParam(":destination", $destination);
@@ -30,6 +31,7 @@ require_once('../dataBase/db.php');
           $query->bindParam(":date_fin",$date_fin);
           $query->bindParam(":places_disponibles", $places_disponibles);
           $query->bindParam(":type_activite",$type_activite);
+          $query->bindParam(":image_path",$image_path);
           $query->execute();
           
         }catch(PDOException $e){
