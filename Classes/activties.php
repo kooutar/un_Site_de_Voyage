@@ -28,6 +28,49 @@
      public function getPlaces_disponibles() {return $this->places_disponibles;}
      public function getType_activite() {return $this->type_activite;}
      public function getActivites(){return $this;}
+   
+     public static function getAllActivites($db) {
+        $activites = [];
+        $query = "SELECT * FROM activite";  // Assurez-vous que le nom de la table est correct
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $activites[] = new activites(
+                $row['titre'],
+                $row['description'],
+                $row['destination'],
+                $row['prix'],
+                $row['date_debut'],
+                $row['date_fin'],
+                $row['places_disponibles'],
+                $row['type_activite']
+            );
+        }
+        return $activites;
+    }
+
+      // Nouvelle méthode pour afficher les activités sous forme de carte responsive
+    public function afficherActivites() {
+        // Commencez à générer la structure HTML des cartes
+        $html = "<div class='activite-cards-container'>";
+        
+        // Exemple de carte pour une activité
+        $html .= "<div class='activite-card'>";
+        $html .= "<h3>" . $this->getTitre() . "</h3>";
+        $html .= "<p><strong>Description:</strong> " . $this->getDescription() . "</p>";
+        $html .= "<p><strong>Destination:</strong> " . $this->getDestination() . "</p>";
+        $html .= "<p><strong>Prix:</strong> " . $this->getPrix() . "€</p>";
+        $html .= "<p><strong>Dates:</strong> Du " . $this->getDate_debut() . " au " . $this->getDate_fin() . "</p>";
+        $html .= "<p><strong>Places disponibles:</strong> " . $this->getPlaces_disponibles() . "</p>";
+        $html .= "<p><strong>Type:</strong> " . $this->getType_activite() . "</p>";
+        $html .= "</div>";  // Fin de la carte d'activité
+
+        $html .= "</div>";  // Fin du conteneur de cartes
+        
+        // Retourner le HTML généré
+        return $html;
+    }
+
 
  }
 

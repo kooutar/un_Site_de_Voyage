@@ -21,6 +21,9 @@ CREATE TABLE reservation (
     PRIMARY key(id_client,id_activite)
 );
 
+ALTER TABLE reservation
+  ADD COLUMN nbrPresonne int NOT NULL;
+
 CREATE TABLE activite (
     id_activite INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(150) not null,
@@ -36,3 +39,4 @@ CREATE TABLE activite (
 alter table user modify   date_naissance varchar(50);
 alter table activite modify   date_debut varchar(50);
 alter table activite modify   date_fin varchar(50);
+

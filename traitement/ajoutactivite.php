@@ -12,7 +12,7 @@ require_once('../Classes/admin.php');
      $type_activite=htmlspecialchars(trim($_POST['type_activite']));
      if(!empty( $titre) && !empty( $destination) && !empty($Description) && !empty($dateDebut) && !empty($dateFin) && !empty($prix) && !empty($nbrPlaces) && !empty($type_activite) ){
         $activite=new activites($titre,$Description,$destination,$prix,$dateDebut,$dateFin, $nbrPlaces,$type_activite);
-        $admin = new Admin("admin","admin","admin@gmail.com","0626917903","zohour","2001-09-08");
+        $admin = new Admin("admin","admin","admin@gmail.com","0626917903","zohour","2001-09-08","2001");
         $admin->ajouterActiviter($activite);
 
      }

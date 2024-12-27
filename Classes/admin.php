@@ -1,13 +1,14 @@
 <?php 
 require_once('utilisateur.php');
+require_once('principeUtilisateur.php');
 require_once('../dataBase/db.php');
-  class Admin  extends Utilisateurs{
-    function __construct($nom,$prenom,$mail,$telephone,$adresse,$date_naissance)
+  class Admin  extends UtilisateurPrincipale{
+    function __construct($nom,$prenom,$mail,$telephone,$adresse,$date_naissance,$password)
     {
-        parent::__construct($nom,$prenom,$mail,$telephone,$adresse,$date_naissance);
+        parent::__construct($nom,$prenom,$mail,$telephone,$adresse,$date_naissance,$password);
     }
+
     public function ajouterActiviter($activite){
-      
         $db=dataBase::getInstance()->getConnection();
         try{
           $req="INSERT INTO activite(titre,description,destination,prix,date_debut,date_fin,places_disponibles,type_activite)
@@ -34,10 +35,26 @@ require_once('../dataBase/db.php');
         }catch(PDOException $e){
             echo $e->getMessage();
         }
+        
+        function accepterReservation(resevation $reservation )
+        {
+          $db=dataBase::getInstance()->getConnection();
+          try{
+             $req="INSERT INTO "  ;
+
+
+          }catch(PDOException $e){
+              echo $e->getMessage();
+          }
+                
+        }
+
 
             
     }
 
+
+   
   }
 
 ?>
