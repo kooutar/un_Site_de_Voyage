@@ -12,7 +12,6 @@ CREATE TABLE user (
 );
 
 CREATE TABLE reservation (
-    
     date_reservation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     statut ENUM('En attente', 'Confirmée', 'Annulée') DEFAULT 'En attente',
     id_client INT NOT NULL,
@@ -21,6 +20,9 @@ CREATE TABLE reservation (
     FOREIGN KEY (id_activite) REFERENCES activite(id_activite) ON DELETE CASCADE,
     PRIMARY key(id_client,id_activite)
 );
+
+ALTER TABLE reservation
+  ADD COLUMN nbrPresonne int NOT NULL;
 
 CREATE TABLE activite (
     id_activite INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,3 +35,13 @@ CREATE TABLE activite (
     places_disponibles INT not null,
     type_activite ENUM('vols', 'hotels', 'circuits touristiques')
 );
+ALTER TABLE activite
+  ADD COLUMN image_path varchar(100) NOT NULL;
+
+alter table user modify   date_naissance varchar(50);
+alter table activite modify   date_debut varchar(50);
+alter table activite modify   date_fin varchar(50);
+
+ALTER TABLE reservation ADD COLUMN nbrPresonne int NOT NULL;
+
+ALTER TABLE activite ADD COLUMN image_path varchar(100) NOT NULL;

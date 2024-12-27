@@ -1,9 +1,3 @@
-<?php 
-   require_once('dataBase/db.php');
-   $db1 = dataBase::getInstance();
-   $conn1 = $db1->getConnection();
-?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -53,7 +47,7 @@
                 <a href="index.php" class="font-bold text-white lg:text-lg p-2 hover:font-bold">Acceuil</a>
                 <hr class="border-t-4 border-emerald-700 opacity-80 w-20 "></div><a href="activites.php" class="font-semibold text-white lg:text-lg p-2 hover:font-bold">Activités</a>
                 <a href="reservations.php" class="font-semibold text-white lg:text-lg p-2 hover:font-bold">Mes Réservations</a>
-                <a href="login.php" class="font-semibold text-white lg:text-lg p-2 hover:font-bold">Se Connecter</a>
+                <a href="frontEnd/login.php" class="font-semibold text-white lg:text-lg p-2 hover:font-bold">Se Connecter</a>
                 
                 <div class="flex space-x-4 pt-2 text-white">
                     <a href="#" class="text-white w-[20px] h-[20px]">
@@ -76,7 +70,7 @@
         <div class="text-center space-y-8">
         <div><a href="#" class="font-semibold text-white hover:text-[#F7E0A1]">Activités</a></div>
           <div><a href="#" class="font-semibold text-white hover:text-[#F7E0A1]">Mes Réservations</a></div>
-          <div><a href="#" class="font-semibold text-white hover:text-[#F7E0A1]">Se Connecter</a></div>
+          <div><a href="frontEnd/login.php" class="font-semibold text-white hover:text-[#F7E0A1]">Se Connecter</a></div>
           <div><a href="#" class="font-semibold text-white hover:text-[#F7E0A1]">Evolutions</a></div>
           <div><a href="#" class="font-semibold text-white hover:bg-[#F7E0A1] hover:rounded-lg hover:py-2 hover:px-3 hover:shadow-2xl hover:scale-105 transition hover:text-[#7F000F]">Sign in</a></div>
       </div>
@@ -89,7 +83,7 @@
         <h2 class="font-bebas textlarge pb-[20px]">Découvrez nos</h2>
         <h2 class="font-bebas textlarge "> activités touristiques.</h2>
         <p>Réservez facilement vos activités préférées en ligne.</p>
-        <button class="font-bebas w-[180px] text-black text-lg bg-emerald-700  rounded-3xl p-2 px-2">Découvrez plus</button>
+        <button id="bteInscrire" class="font-bebas w-[180px] text-black text-lg bg-emerald-700  rounded-3xl p-2 px-2">Inscrire</button>
 </div>
 
 </section>
@@ -266,7 +260,13 @@
             <p class="relative z-5 text-lg text-gray-700 fontsinista font-semibold">© 2024 Codebenders. All rights reserved.</p>
         </div>
     </footer>
-     
+     <script>
+
+document.getElementById('bteInscrire').addEventListener('click',()=>{
+  window.location.href = "frontEnd/registre.php";
+
+})
+     </script>
 
 
 </body>

@@ -28,6 +28,8 @@
  
 }
 
+// $db = dataBase::getInstance();
+
 
 
 ?>
