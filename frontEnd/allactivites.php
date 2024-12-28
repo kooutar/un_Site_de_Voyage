@@ -101,6 +101,20 @@
     closeModalBtn.addEventListener('click', () => {
             modal.classList.add('hidden');
         });
+        document.addEventListener('DOMContentLoaded', function () {
+    // Sélectionner tous les boutons avec la classe "resrever"
+    const buttons = document.querySelectorAll('.resrever');
+
+    // Ajouter un gestionnaire de clic à chaque bouton
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Afficher l'ID du bouton
+            console.log(`ID du bouton cliqué : ${this.id}`);
+            // alert(`ID du bouton cliqué : ${this.id}`);
+        });
+    });
+});
+
 </script>
 </body>
 </html>

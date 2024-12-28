@@ -4,7 +4,9 @@ require_once('principaleUtilisateur.php');
 require_once('../dataBase/db.php');
 require_once('activites.php');
   class client extends UtilisateurPrincipale {
-     
+        private $id_activite;
+
+        
        function reserver(activites $activite){
         $db=dataBase::getInstance()->getConnection();
         try{

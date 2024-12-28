@@ -37,7 +37,7 @@
           <a href="view_menus.php" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white"> View Menus</a>
           <a href="make_reservation.php" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white"> Make a reservation</a>
           <a href="view_reservations.php" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white">View reservations</a>
-          <a href="logout.php" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white">Logout</a>
+          <a href="../traitement/logout.php" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white">Logout</a>
       </nav>
   </aside>
   <main class="flex-1  overflow-y-auto">

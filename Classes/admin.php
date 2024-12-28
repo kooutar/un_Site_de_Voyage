@@ -32,8 +32,11 @@ require_once('../dataBase/db.php');
           $query->bindParam(":places_disponibles", $places_disponibles);
           $query->bindParam(":type_activite",$type_activite);
           $query->bindParam(":image_path",$image_path);
-          $query->execute();
           
+
+          $query->execute();
+          $id_activite=$db->lastInsertId();
+          $activite->setID_activite($id_activite);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
@@ -54,6 +57,8 @@ require_once('../dataBase/db.php');
 
             
     }
+
+    
 
 
    
